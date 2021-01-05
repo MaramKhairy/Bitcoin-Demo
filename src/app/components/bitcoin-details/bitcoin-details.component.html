@@ -1,0 +1,27 @@
+<p>bitcoin-details works!</p>
+
+<div>
+    Marketcap: {{bitcoinDetails?.market_price_usd | json | currency}}
+</div>
+
+<div>
+    Anzahl aller bitcoin im Umlauf: {{bitcoinDetails?.totalbc | json }}
+</div>
+
+<div>
+    Anzahl der Transaktionen in den letzten 24h: {{bitcoinDetails?.n_tx | number }}
+</div>
+
+<div>
+    Anzahl gesendeter Bitcoin in den letzten 24h {{bitcoinDetails?.total_btc_sent | number  }}
+</div>
+
+<div>
+    Aktueller Schwierigkeitsgrad: {{bitcoinDetails?.difficulty | number }}
+</div>
+
+<div>
+    Aktueller Hashrate: {{bitcoinDetails?.hash_rate | number }} GH/s
+</div>
+
+<!-- list elements? -->

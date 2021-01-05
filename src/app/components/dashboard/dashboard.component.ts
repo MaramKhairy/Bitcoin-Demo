@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/data.service';
-import { map } from 'rxjs/operators';
-
-
+import { DataService } from 'src/app/services/data.service';
+import { map, tap } from 'rxjs/operators';
+//import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,13 +12,32 @@ export class DashboardComponent implements OnInit {
 
   constructor(private data: DataService) { }
 
-   usdResult;
+
+  prices;
+  bitcoinOwned;
 
   ngOnInit(): void {
-  console.log("hello from on init");
-   this.data.getPrice().pipe(map((result) => (this.usdResult = result))).subscribe(resData => {console.log(resData)});
 
+  
 
-  }
+  //add catch error 
+  this.data.getPrice()
+ .pipe(tap(result => {console.log("result =",result)} )).subscribe(response => this.prices = JSON.stringify(response, getCircularReplacer()) );
 
+ //for circular structure
+  const getCircularReplacer = () => {
+    const seen = new WeakSet;
+    return (key, value) => {
+      if (typeof value === "object" && value !== null) {
+        if (seen.has(value)) {
+          return;
+        }
+        seen.add(value);
+      }
+      return value;
+    };
+  };
+  
+ this.bitcoinOwned= localStorage.getItem("btc Amount");
+}
 }

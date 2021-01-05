@@ -1,0 +1,31 @@
+
+<!-- <div class="mat-display-1">Bitcoin Umrechner</div> -->
+
+<div>
+    <mat-form-field floatLabel="always"  appearance="outline" >
+        <mat-label>Amount to convert</mat-label>
+        <input #amountToConvert matInput type="number"  placeholder="Input Amount to convert" (keyup.enter)="convertAmount(selectedCurrency, amountToConvert.value)">
+    </mat-form-field>
+</div>
+
+<div>
+    <mat-form-field floatLabel="always"  appearance="outline" >
+        <mat-label>currency</mat-label>
+        <mat-select [(value)]="selectedCurrency" placeholder="Select currency" >
+            <mat-option   *ngFor="let currency of currencies" [value]="currency">
+              {{currency}}
+            </mat-option>
+          </mat-select>
+    </mat-form-field>
+</div>
+
+<div>
+    <button mat-raised-button (click)="convertAmount(selectedCurrency, amountToConvert.value)">convert to btc</button>
+</div>
+
+<div>
+<textarea name="result"  rows="1" >{{amountInBtc}}</textarea>
+</div>
+<!-- {{ result }} -->
+
+<!-- maybe add warning if no amount is inputed-->

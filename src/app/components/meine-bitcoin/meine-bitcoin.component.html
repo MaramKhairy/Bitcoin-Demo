@@ -1,0 +1,11 @@
+<p>meine-bitcoin works!</p>
+<div>
+    <mat-form-field floatLabel="always"  appearance="outline" >
+        <mat-label>Bitcoin amount owned</mat-label>
+        <input #btcAmount matInput type="number"  placeholder="Bitcoin amount" (keyup.enter)="saveBtcAmount(btcAmount.value)">
+    </mat-form-field>
+</div>
+
+<div>
+    <button mat-raised-button (click)="saveBtcAmount(btcAmount.value)">Save</button>
+</div>

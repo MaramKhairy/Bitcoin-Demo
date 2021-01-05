@@ -1,5 +1,14 @@
 <p>dashboard works!</p>
 
 <div>
-    {{ usdResult | json }}
+    {{ prices }}
 </div> 
+
+
+<div *ngIf="bitcoinOwned">
+    Bitcoin Owned: {{bitcoinOwned}}
+</div>
+
+<div>
+    value in EUR: 
+</div>
