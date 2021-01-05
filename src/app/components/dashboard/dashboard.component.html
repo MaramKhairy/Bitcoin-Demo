@@ -1,14 +1,12 @@
-<p>dashboard works!</p>
-
-<div>
-    {{ prices }}
-</div> 
-
-
-<div *ngIf="bitcoinOwned">
+<div *ngFor="let item of prices | keyvalue">
+    {{item.key}} last: {{ item.value.last }} {{item.key}} sell: {{ item.value.sell }}
+  </div>
+  
+  
+  <div *ngIf="bitcoinOwned">
     Bitcoin Owned: {{bitcoinOwned}}
-</div>
-
-<div>
-    value in EUR: 
-</div>
+  </div>
+  
+  <div>
+    value in EUR: {{ bitcoinOwned *  this.prices.get('EUR')?.sell}}
+  </div>

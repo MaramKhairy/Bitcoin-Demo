@@ -11,7 +11,6 @@ export class DataService {
   constructor( private http: HttpClient) { }
 
   getPrice() {
-    const currencies = "EUR, USD, AUD";
     var url = "https://blockchain.info/ticker";
     //var url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=EUR" 
     return this.http.get(url);

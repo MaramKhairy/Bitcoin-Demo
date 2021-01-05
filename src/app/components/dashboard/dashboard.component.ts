@@ -18,25 +18,15 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
-  
 
-  //add catch error 
-  this.data.getPrice()
- .pipe(tap(result => {console.log("result =",result)} )).subscribe(response => this.prices = JSON.stringify(response, getCircularReplacer()) );
 
- //for circular structure
-  const getCircularReplacer = () => {
-    const seen = new WeakSet;
-    return (key, value) => {
-      if (typeof value === "object" && value !== null) {
-        if (seen.has(value)) {
-          return;
-        }
-        seen.add(value);
-      }
-      return value;
-    };
-  };
+this.data.getPrice()
+.subscribe(
+  (result:any)=>{
+    this.prices =new Map(Object.entries(result));
+    console.log(this.prices), console.log("result", Object.entries(result));
+ }
+ );
   
  this.bitcoinOwned= localStorage.getItem("btc Amount");
 }
