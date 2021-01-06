@@ -34,12 +34,8 @@
 //     color: pink;
 // }
 
-.nav-bar { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-nav a.active {
-    color: pink;
-}
 
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 /**
 * Generated theme by Material Theme Generator
 * https://materialtheme.arcsine.dev
@@ -286,7 +282,6 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
     font-family: 'Roboto';
   }
 
-
-}
+  }
 
 

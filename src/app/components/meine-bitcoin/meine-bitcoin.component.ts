@@ -9,13 +9,13 @@ export class MeineBitcoinComponent implements OnInit {
 
   constructor() { }
 
-  
+
   btcAmount
   ngOnInit(): void {
-    
+
   }
 
-  saveBtcAmount(btcAmount){
+  saveBtcAmount(btcAmount) {
     console.log(btcAmount);
     localStorage.setItem("btc Amount", btcAmount)
   }

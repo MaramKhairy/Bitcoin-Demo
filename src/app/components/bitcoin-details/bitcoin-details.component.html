@@ -1,27 +1,11 @@
 
-
-<div>
-    Marketcap: {{bitcoinDetails?.market_price_usd | json | currency}}
-</div>
-
-<div>
-    Anzahl aller bitcoin im Umlauf: {{bitcoinDetails?.totalbc | json }}
-</div>
-
-<div>
-    Anzahl der Transaktionen in den letzten 24h: {{bitcoinDetails?.n_tx | number }}
-</div>
-
-<div>
-    Anzahl gesendeter Bitcoin in den letzten 24h {{bitcoinDetails?.total_btc_sent | number  }}
-</div>
-
-<div>
-    Aktueller Schwierigkeitsgrad: {{bitcoinDetails?.difficulty | number }}
-</div>
-
-<div>
-    Aktueller Hashrate: {{bitcoinDetails?.hash_rate | number }} GH/s
-</div>
-
-<!-- list elements? -->
+<div class="bitcoinDetailsContainer">
+<mat-list dense>
+    <mat-list-item > Marketcap: {{bitcoinDetails?.market_price_usd | json | currency}}</mat-list-item>
+    <mat-list-item>    Anzahl aller Bitcoin im Umlauf: {{bitcoinDetails?.totalbc | json }} </mat-list-item>
+    <mat-list-item>    Anzahl der Transaktionen in den letzten 24h: {{bitcoinDetails?.n_tx | number }}  </mat-list-item>
+    <mat-list-item>     Anzahl gesendeter Bitcoin in den letzten 24h {{bitcoinDetails?.total_btc_sent | number  }}   </mat-list-item>
+    <mat-list-item>    Aktueller Schwierigkeitsgrad: {{bitcoinDetails?.difficulty | number }}    </mat-list-item>
+    <mat-list-item>    Aktueller Hashrate: {{bitcoinDetails?.hash_rate | number }} GH/s    </mat-list-item>
+</mat-list>  
+ </div>

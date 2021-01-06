@@ -15,19 +15,21 @@ export class DashboardComponent implements OnInit {
 
   prices;
   bitcoinOwned;
+  headers = ["Currency", "last Price", "Sell Price"]
 
   ngOnInit(): void {
 
 
+    this.data.getPrice()
+      .subscribe(
+        (result: any) => {
+          this.prices = new Map(Object.entries(result));
+          console.log("prices= ", this.prices, "type of prices", typeof this.prices), console.log("result = ", Object.entries(result),
+            "type of result", typeof Object.entries(result))
+        }
+      );
 
-this.data.getPrice()
-.subscribe(
-  (result:any)=>{
-    this.prices =new Map(Object.entries(result));
-    console.log(this.prices), console.log("result", Object.entries(result));
- }
- );
-  
- this.bitcoinOwned= localStorage.getItem("btc Amount");
-}
+
+    this.bitcoinOwned = localStorage.getItem("btc Amount");
+  }
 }
